@@ -1,0 +1,104 @@
+Purpose: Demonstrate the use of classes and arrays
+Program definition:
+Design a class bookType that defines a book as a class.
+a. Each object of the class bookType will hold the following information about a book:
+title
+author
+publisher
+year published
+ISBN 13 (with dashes)
+price
+number of copies in stock (may be 0)
+b. Include the member functions to perform the various operations, required in the below
+menu, on objects of type bookType: Include individual get and set functions for all
+member variables.
+c. Ensure a default constructor is coded and the constructor initializes all data members.
+d. ALL member variables must be private and accessed through member functions. The
+main client program cannot/must not access the variables directly.
+e. Write a client class that uses the class bookType and tests various operations on the
+objects of the class bookType. Declare an array of 50 components of type bookType in
+the client class. Create/initialize each of the objects in the array (new).
+f. Using a function, open the provided datafile (bookData.txt). Request the file name from
+the user. If the file does not open, display a proper message and exit the program using
+exception handling. The file open should be in main and test a return value of success
+or failure.
+g. Use a function and the provided datafile (bookData.txt) to initially load the data. Do not
+place the datafile read functionality in the class. The data file is of the form:
+Book Title
+ISBN
+Publisher
+Year Published
+Cost
+Number In Stock
+Author
+h. Read until end of file. Do not hardcode and use the actual number of books as the
+maximum (limiting factor) for the array of books. Keep a count of actual rows read and
+pass into and out of any functions and processes.
+i. Have the program provide the following capabilities (by user request):
+Through a menu system provide the capability to:
+1) Search for a book by ISBN, Author or Book title. If the store sells the book,
+return an appropriate message. If the store does not sell the book, return an
+appropriate message. If the store sells the book, print the Title, authors, ISBN,
+publisher, price and the number in stock for the book.
+2) Print a list of ALL the books in stock. This list will include all the information
+available for a book. A book is in stock when the number in stock is greater than
+0.
+3) Update the number of copies in stock. The user may search for the book using
+one of the capabilities indicated in (1) (by ISBN, Author or Title) and add to (not
+replace) the number of copies by the number entered. This will simulate the
+process of restocking.
+4) Print a list of ALL the books the store sells, even if not in stock at the time.
+The list will include all the information available for a book.
+5) The user may exit the program by keying in an exit command or choice
+determined by you.
+j. Include error checking (invalid menu choices, file open errors, etc.)
+k. Once your class is declared and defined and your client class written, test each of the
+menu options to ensure proper processing and program behavior.
+You must submit all source files (*.java) especially if you code the book class in a separate file
+from the main file. Submit a README file that contains: The names of all your files including all
+the files in the project; how to compile; how to run and the IDE used.
+All assignments are to be submitted to the appropriate Assignment posting in Canvas.
+Submit your code file(s) (*.java), and readme file. Program must compile and all files must
+be submitted to receive credit. DO NOT submit the executable (*.class).
+A program that does not compile will receive a zero (0).
+You may zip all your files and submit the zip file. A zipped submission will receive 1 point extra
+credit.
+The code file must contain the following as documentation. If the following is not included, 10%
+may be deducted:
+• The name of your Java file
+• Your name
+• Some kind of date, either the due date or the date you finished
+• The type of input
+• The type of output
+• A brief description of the algorithm or purpose of the program
+For example:
+/ * Program name: assignment1.java
+Author: Pam Smith
+Date: 8/25/22
+Input: requests an input and output file name from the user (inputfile.txt provided).
+Output is name of your choice
+Output: displays output on the console and writes output to file name provided
+Description: This program translates a word or phrase using the ROT13 cipher
+*/
+All procedures and functions should be documented with the following information:
+• A brief description of the purpose of the function or procedure
+• Signature : return type, name, parameters (including type)
+• A list of the parameters and what each represents
+• A description of the function return type as applicable
+• Precondition(s) as applicable
+• Postcondition(s) as applicable
+For example:
+/*
+myfunction outputs the values contained in the input parameters.
+myfunction returns no value; it takes an integer parameter as input and a character
+parameter as input
+The integer parameter contains the ordinal number representing a letter in the
+alphabet
+The character parameter contains a letter of the alphabet
+No value is returned
+Precondition: the integer value must contain a valid number representing the ordinal
+number of the letter contained in the character parameter; the character parameter
+must contain a value representing a letter of the alphabet
+Postcondition: there are no post conditions
+*/
+public void myfunction (int a, char b)
