@@ -1,4 +1,4 @@
-public bookType{
+public class bookType{
 
     private String title;
     private String author;
@@ -13,6 +13,7 @@ public bookType{
         Constructors: Includes default and fully defined
     */
 
+   // Default constructor
     public bookType(){
         title = "";
         author = "";
@@ -23,6 +24,7 @@ public bookType{
         numCopies = -1;
     }
 
+    // Fully defined
     public bookType(String title, String author, String publisher, int yearPublished, String isbn13, double price, int numCopies){
 
         this.title = title;
@@ -85,5 +87,16 @@ public bookType{
     public void setNumCopies(int numCopies){
         this.numCopies = numCopies;
     }
+
+
+    /*
+    * Print book details
+    */
+
+   public void printBookDetails(){
+    System.out.println("Title: " + title + "\t Author: " + author + "\t Publisher: " + publisher);
+    System.out.println("Year Published: " + yearPublished + "\t ISBN13: " + isbn13);
+    System.out.println("Price: " + price + "\t Copies: " + numCopies);
+   }
 
 }
