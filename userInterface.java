@@ -62,26 +62,42 @@ public class userInterface{
     }
 
     public static void searchByISBN(ArrayList<bookType> books, String isbn13){
+        boolean hasBook = false;
         for(int i = 0; i < books.size(); i++){
             if( (books.get(i).getISBN13()).equals(isbn13)){
+                hasBook = true;
                 books.get(i).printBookDetails();
             }
+        }
+        if(!hasBook){
+            System.out.println("We're Sorry, it doesn't appear we have a book with that ISBN13.")
+
         }
     }
 
     public static void searchByAuthor(ArrayList<bookType> books, String author){
+        boolean hasBook = false;
         for(int i = 0; i < books.size(); i++){
             if( (books.get(i).getAuthor()).equals(author)){
+                hasBook = true;
                 books.get(i).printBookDetails();
             }
+        }
+        if(!hasBook){
+            System.out.println("We're Sorry, it doesn't appear we have a book by that author.")
         }
     }
 
     public static void searchByTitle(ArrayList<bookType> books, String title){
+        boolean hasBook = false;
         for(int i = 0; i < books.size(); i++){
             if( (books.get(i).getTitle()).equals(title)){
+                hasBook = true;
                 books.get(i).printBookDetails();
             }
+        }
+        if(!hasBook){
+            System.out.println("We're Sorry, it doesn't appear we have a book with that title.")
         }
     }
 
