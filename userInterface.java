@@ -117,6 +117,7 @@ public class userInterface{
 
                 books.add(new bookType(title, author, publisher, yearPublished, isbn, price, numCopies));
             }
+            System.out.println("All book data loaded successfully!");
         }
         catch (IOException e) {
             System.out.println("Error reading file: " + e.getMessage());
