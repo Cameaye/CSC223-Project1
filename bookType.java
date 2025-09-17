@@ -129,42 +129,86 @@ public class bookType{
         return numCopies;
     }
 
-    /*
-     * Setters
+    // ----------------- Setters -----------------
+
+    /**
+     * Sets the title of the book.
+     *
+     * @param title the new title
      */
-    public void setTitle(String title){
+    public void setTitle(String title) {
         this.title = title;
     }
-    public void setAuthor(String author){
+
+    /**
+     * Sets the author of the book.
+     *
+     * @param author the new author
+     */
+    public void setAuthor(String author) {
         this.author = author;
     }
-    public void setPublisher(String publisher){
+
+    /**
+     * Sets the publisher of the book.
+     *
+     * @param publisher the new publisher
+     */
+    public void setPublisher(String publisher) {
         this.publisher = publisher;
     }
-    public void setYearPublished(int yearPublished){
+
+    /**
+     * Sets the year the book was published.
+     *
+     * @param yearPublished the new year of publication
+     */
+    public void setYearPublished(int yearPublished) {
         this.yearPublished = yearPublished;
     }
-    public void setISBN13(String isbn13){
+
+    /**
+     * Sets the ISBN-13 of the book.
+     *
+     * @param isbn13 the new ISBN-13
+     */
+    public void setISBN13(String isbn13) {
         this.isbn13 = isbn13;
     }
-    public void setPrice(double price){
+
+    /**
+     * Sets the price of the book.
+     *
+     * @param price the new price
+     */
+    public void setPrice(double price) {
         this.price = price;
     }
-    public void setNumCopies(int numCopies){
+
+    /**
+     * Sets the number of copies available for the book.
+     *
+     * @param numCopies the new number of copies
+     */
+    public void setNumCopies(int numCopies) {
         this.numCopies = numCopies;
     }
 
+    // ----------------- Other Methods -----------------
 
-    /*
-    * Print book details
-    */
-
+    /**
+     * Prints the details of the book in a formatted output.
+     */
    public void printBookDetails(){
     System.out.println("Title: " + title + "\t Author: " + author + "\t Publisher: " + publisher);
     System.out.println("Year Published: " + yearPublished + "\t ISBN13: " + isbn13);
     System.out.println("Price: " + price + "\t Copies: " + numCopies);
    }
 
-   /* Creating space for future toString override */
+
+    /*
+     * Placeholder for future toString override.
+     */
+
 
 }
