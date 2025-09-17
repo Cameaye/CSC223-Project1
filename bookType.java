@@ -99,4 +99,6 @@ public class bookType{
     System.out.println("Price: " + price + "\t Copies: " + numCopies);
    }
 
+   /* Creating space for future toString override */
+
 }

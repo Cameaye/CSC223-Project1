@@ -1,5 +1,7 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
-import bookType;
 import java.util.Scanner;
 
 public class userInterface{
@@ -7,45 +9,45 @@ public class userInterface{
 
     public static void main(String[] args){
 
-        ArrayList<bookType> books = new ArrayList<bookType>();
+        ArrayList<bookType> books = new ArrayList<>();
         Scanner lineInput = new Scanner(System.in);
 
+        System.out.println("Welcome to the Robust Book Library, please enter the name of the file you would like to search through: ");
+        String fileName = lineInput.nextLine();
 
+        fileReader(fileName, books);
 
         boolean userInterfaceLoopCondition = true;
         int userInterfaceSelector;
         while(userInterfaceLoopCondition){
             System.out.println("Please enter the number with your desired functionality: ");
-            System.println("1) Print all books in stock \n
-                            2) Search Books by ISBN13 \n
-                            3) Search Books by Author \n
-                            4) Search Books by Title \n
-                            -1) Exit");
-            userInterfaceSelector = lineInput.nexInt();
+            System.out.println(" 1) Print all books in stock \n 2) Search Books by ISBN13 \n 3) Search Books by Author \n 4) Search Books by Title \n -1) Exit");
+            userInterfaceSelector = lineInput.nextInt();
 
             
-            switch userInterfaceSelector{
+            switch (userInterfaceSelector) {
                 case 1:
                     printAllInStock(books);
                     break;
                 case 2:
-                    System.out.print("Please enter the ISBN13 you would like to search for: ")
+                    System.out.print("Please enter the ISBN13 you would like to search for: ");
                     String isbn = lineInput.next();
                     searchByISBN(books, isbn);
                     break;
                 case 3:
-                    System.out.print("Please enter the Author you would like to search for: ")
+                    System.out.print("Please enter the Author you would like to search for: ");
                     String author = lineInput.next();
                     searchByAuthor(books, author);
                     break;
                 case 4:
-                    System.out.print("Please enter the Title you would like to search for: ")
+                    System.out.print("Please enter the Title you would like to search for: ");
                     String title = lineInput.next();
                     searchByTitle(books, title);
                     break;
                 case -1:
                     System.out.println("Thank you for using our service!");
                     userInterfaceLoopCondition = false;
+                    lineInput.close();
                     break;
             }
         }
@@ -70,7 +72,7 @@ public class userInterface{
             }
         }
         if(!hasBook){
-            System.out.println("We're Sorry, it doesn't appear we have a book with that ISBN13.")
+            System.out.println("We're Sorry, it doesn't appear we have a book with that ISBN13.");
 
         }
     }
@@ -84,7 +86,7 @@ public class userInterface{
             }
         }
         if(!hasBook){
-            System.out.println("We're Sorry, it doesn't appear we have a book by that author.")
+            System.out.println("We're Sorry, it doesn't appear we have a book by that author.");
         }
     }
 
@@ -97,13 +99,33 @@ public class userInterface{
             }
         }
         if(!hasBook){
-            System.out.println("We're Sorry, it doesn't appear we have a book with that title.")
+            System.out.println("We're Sorry, it doesn't appear we have a book with that title.");
         }
     }
 
     public static void fileReader(String fileName, ArrayList<bookType> books){
+        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))){
+            String title;
 
+            while ((title = reader.readLine()) != null) {
+                String isbn = reader.readLine();
+                String publisher = reader.readLine();
+                int yearPublished = Integer.parseInt(reader.readLine().trim());
+                double price = Double.parseDouble(reader.readLine().trim());
+                int numCopies = Integer.parseInt(reader.readLine().trim());
+                String author = reader.readLine();
+
+                books.add(new bookType(title, author, publisher, yearPublished, isbn, price, numCopies));
+            }
+            System.out.println("All book data loaded successfully!");
+        }
+        catch (IOException e) {
+            System.out.println("Error reading file: " + e.getMessage());
+        } catch (NumberFormatException e) {
+            System.out.println("Error parsing number: " + e.getMessage());
+        }
     }
+    
 
 
 
