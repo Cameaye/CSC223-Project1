@@ -8,14 +8,26 @@
  */
 public class bookType{
 
+    /** The title of the book. */
     private String title;
-    private String author;
-    private String publisher;
-    private int yearPublished;
-    private String isbn13;
-    private double price;
-    private int numCopies;
 
+    /** The author of the book. */
+    private String author;
+
+    /** The publisher of the book. */
+    private String publisher;
+
+    /** The year the book was published. */
+    private int yearPublished;
+
+    /** The ISBN-13 identifier of the book. */
+    private String isbn13;
+
+    /** The price of the book. */
+    private double price;
+
+    /** The number of copies available for the book. */
+    private int numCopies;
 
     /*
         Constructors: Includes default and fully defined
