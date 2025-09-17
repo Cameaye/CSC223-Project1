@@ -20,7 +20,7 @@ public class userInterface{
         while(userInterfaceLoopCondition){
             System.out.println("Please enter the number with your desired functionality: ");
             System.out.println(" 1) Print all books in stock \n 2) Search Books by ISBN13 \n 3) Search Books by Author \n 4) Search Books by Title");
-            System.out.println(" 5) Print all books \n 6) Update stock by Author \n 7) Update stock by ISBN13\n -1) Exit");
+            System.out.println(" 5) Print all books \n 6) Update stock by Author \n 7) Update stock by ISBN13 \n 8) Update stock by title \n -1) Exit");
             userInterfaceSelector = lineInput.nextInt();
             lineInput.nextLine();
 
@@ -53,6 +53,7 @@ public class userInterface{
                     System.out.print("Please enter the quantity you would like to add: ");
                     int quantity = lineInput.nextInt();
                     restockByAuthor(books, auth, quantity);
+                    System.out.println("Stock updated succesfully!");
                     break;
                 case 7:
                     System.out.print("Please enter the ISBN13 you would like to update the stock for: ");
@@ -60,6 +61,15 @@ public class userInterface{
                     System.out.print("Please enter the quantity you would like to add: ");
                     int stock = lineInput.nextInt();
                     restockByISBN(books, isbn13, stock);
+                    System.out.println("Stock updated succesfully!");
+                    break;
+                case 8:
+                    System.out.print("Please enter the Title you would like to update the stock for: ");
+                    String bookTitle = lineInput.nextLine();
+                    System.out.print("Please enter the quantity you would like to add: ");
+                    int stockQuantity = lineInput.nextInt();
+                    restockByTitle(books, bookTitle, stockQuantity);
+                    System.out.println("Stock updated succesfully!");
                     break;
                 case -1:
                     System.out.println("Thank you for using our service!");
@@ -146,6 +156,18 @@ public class userInterface{
         boolean hasBook = false;
         for(int i = 0; i < books.size(); i++){
             if( (books.get(i).getISBN13()).equals(isbn)){
+                hasBook = true;
+                books.get(i).setNumCopies(restockQuantity + books.get(i).getNumCopies());
+            }
+        }
+        if(!hasBook){
+            System.out.println("We're Sorry, it doesn't appear we have a book by that author.");
+        }
+    }
+    public static void restockByTitle(ArrayList<bookType> books, String title, int restockQuantity){
+        boolean hasBook = false;
+        for(int i = 0; i < books.size(); i++){
+            if( (books.get(i).getTitle()).equals(title)){
                 hasBook = true;
                 books.get(i).setNumCopies(restockQuantity + books.get(i).getNumCopies());
             }
