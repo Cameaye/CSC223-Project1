@@ -1,3 +1,16 @@
+/*
+Program name: bookType.java
+Author: Cameron Ayers
+Date: 9/19/2025
+Input: No direct user input; values are set via constructors or setter methods.
+Output: Book details are displayed on the console through the printBookDetails method.
+Description: This class represents a book object with attributes such as title, author,
+             publisher, year published, ISBN-13, price, and number of copies in stock.
+             It provides constructors, getter and setter methods for all fields, and
+             a method to print the book’s details in a formatted manner.
+*/
+
+
 /**
  * The {@code bookType} class represents a book with details such as title, author,
  * publisher, year of publication, ISBN-13, price, and number of copies.
