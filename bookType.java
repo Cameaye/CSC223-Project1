@@ -1,3 +1,11 @@
+/**
+ * The {@code bookType} class represents a book with details such as title, author,
+ * publisher, year of publication, ISBN-13, price, and number of copies.
+ * <p>
+ * It provides constructors for creating default or fully defined books,
+ * along with getter and setter methods to access and modify book details.
+ * </p>
+ */
 public class bookType{
 
     private String title;
@@ -13,7 +21,13 @@ public class bookType{
         Constructors: Includes default and fully defined
     */
 
-   // Default constructor
+    /**
+     * Default constructor.
+     * <p>
+     * Initializes all fields to default values:
+     * empty strings for text fields, and -1 for numeric fields.
+     * </p>
+     */
     public bookType(){
         title = "";
         author = "";
@@ -24,7 +38,17 @@ public class bookType{
         numCopies = -1;
     }
 
-    // Fully defined
+    /**
+     * Fully defined constructor.
+     *
+     * @param title         the title of the book
+     * @param author        the author of the book
+     * @param publisher     the publisher of the book
+     * @param yearPublished the year the book was published
+     * @param isbn13        the ISBN-13 of the book
+     * @param price         the price of the book
+     * @param numCopies     the number of copies available
+     */
     public bookType(String title, String author, String publisher, int yearPublished, String isbn13, double price, int numCopies){
 
         this.title = title;
@@ -37,28 +61,70 @@ public class bookType{
     }
 
 
-   /* 
-    * Getters
-    */
+    // ----------------- Getters -----------------
 
+    /**
+     * Gets the title of the book.
+     *
+     * @return the book's title
+     */
     public String getTitle(){
         return title;
     }
+
+    /**
+     * Gets the author of the book.
+     *
+     * @return the book's author
+     */
     public String getAuthor(){
         return author;
     }
+
+
+    /**
+     * Gets the publisher of the book.
+     *
+     * @return the book's publisher
+     */
     public String getPublisher(){
         return publisher;
     }
+
+
+    /**
+     * Gets the year the book was published.
+     *
+     * @return the year of publication
+     */
     public int getYearPublished(){
         return yearPublished;
     }
+
+
+    /**
+     * Gets the ISBN-13 of the book.
+     *
+     * @return the ISBN-13
+     */
     public String getISBN13(){
         return isbn13;
     }
+
+    /**
+     * Gets the price of the book.
+     *
+     * @return the price
+     */
     public double getPrice(){
         return price;
     }
+
+    /**
+     * Gets the number of copies available for the book.
+     *
+     * @return the number of copies
+     */
     public int getNumCopies(){
         return numCopies;
     }

@@ -15,14 +15,12 @@ public class userInterface{
         System.out.println("Welcome to the Robust Book Library, please enter the name of the file you would like to search through: ");
         String fileName = lineInput.nextLine();
 
-        fileReader(fileName, books);
-
-        boolean userInterfaceLoopCondition = true;
+        boolean userInterfaceLoopCondition = fileReader(fileName, books);
         int userInterfaceSelector;
         while(userInterfaceLoopCondition){
             System.out.println("Please enter the number with your desired functionality: ");
             System.out.println(" 1) Print all books in stock \n 2) Search Books by ISBN13 \n 3) Search Books by Author \n 4) Search Books by Title");
-            System.out.println(" 5) Print all books \n 6) Update stock by Author \n -1) Exit");
+            System.out.println(" 5) Print all books \n 6) Update stock by Author \n 7) Update stock by ISBN13\n -1) Exit");
             userInterfaceSelector = lineInput.nextInt();
             lineInput.nextLine();
 
@@ -56,10 +54,20 @@ public class userInterface{
                     int quantity = lineInput.nextInt();
                     restockByAuthor(books, auth, quantity);
                     break;
+                case 7:
+                    System.out.print("Please enter the ISBN13 you would like to update the stock for: ");
+                    String isbn13 = lineInput.nextLine();
+                    System.out.print("Please enter the quantity you would like to add: ");
+                    int stock = lineInput.nextInt();
+                    restockByISBN(books, isbn13, stock);
+                    break;
                 case -1:
                     System.out.println("Thank you for using our service!");
                     userInterfaceLoopCondition = false;
                     lineInput.close();
+                    break;
+                default:
+                    System.out.println("Invalid Input! Please select a valid option or -1 to exit");
                     break;
             }
         }
@@ -133,7 +141,21 @@ public class userInterface{
             System.out.println("We're Sorry, it doesn't appear we have a book by that author.");
         }
     }
-    public static void fileReader(String fileName, ArrayList<bookType> books){
+
+    public static void restockByISBN(ArrayList<bookType> books, String isbn, int restockQuantity){
+        boolean hasBook = false;
+        for(int i = 0; i < books.size(); i++){
+            if( (books.get(i).getISBN13()).equals(isbn)){
+                hasBook = true;
+                books.get(i).setNumCopies(restockQuantity + books.get(i).getNumCopies());
+            }
+        }
+        if(!hasBook){
+            System.out.println("We're Sorry, it doesn't appear we have a book by that author.");
+        }
+    }
+
+    public static boolean fileReader(String fileName, ArrayList<bookType> books){
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))){
             String title;
 
@@ -148,11 +170,16 @@ public class userInterface{
                 books.add(new bookType(title, author, publisher, yearPublished, isbn, price, numCopies));
             }
             System.out.println("All book data loaded successfully!");
+            return true;
         }
         catch (IOException e) {
             System.out.println("Error reading file: " + e.getMessage());
+            System.out.println("Error detected, exiting");
+            return false;
         } catch (NumberFormatException e) {
             System.out.println("Error parsing number: " + e.getMessage());
+            System.out.println("Error detected, exiting");
+            return false;
         }
     }
     
